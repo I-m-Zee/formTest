@@ -1,0 +1,34 @@
+export class FormFields<T>{
+    value:T|undefined;
+    label:string;
+    key:string;
+    required:boolean;
+    order:number;
+    validator:string;
+    controlType:string;
+    type:string;
+    options:{key:string; value:string}[];
+    constructor(
+        options:{
+            val?:T;
+            lbl?:string;
+            key?:string;
+            req?:boolean;
+            order?:number;
+            validate?:string;
+            cType?:string;
+            type?:string;
+            options?:{key:string;value:string}[];
+        }={}
+    ){
+        this.value=options.val;
+        this.label=options.lbl||'';
+        this.key=options.key||'';
+        this.required=!!options.req;
+        this.validator=options.validate||'';
+        this.order=options.order===undefined?1:options.order;
+        this.controlType=options.cType||'';
+        this.type=options.type||'';
+        this.options=options.options||[];
+    }
+}
